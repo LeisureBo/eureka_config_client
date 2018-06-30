@@ -11,7 +11,7 @@ spring:
     config:
       enabled: true
       label: master # 指明远程仓库的分支
-      profile: dev # dev-开发环境配置文件  test-测试环境  pro-正式环境
+      profile: test # dev-开发环境配置文件  test-测试环境  pro-正式环境
       uri: # 指明配置服务中心的地址
       - http://127.0.0.1:8098/
 # 指明加载的配置文件名称(多个逗号隔开) 默认取spring.application.name
