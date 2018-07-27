@@ -4,6 +4,12 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8091/eureka/
+# 开放actuator所有页面节点(包括refresh) 默认只开启了health、info两个节点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 spring:
   application:
     name: eureka-config-client
@@ -16,6 +22,7 @@ spring:
       # - http://127.0.0.1:8098/
       discovery:
         enabled: true
-        service-id: eureka-config-server # 调用eureka注册中心的注册服务
+        # 调用eureka注册中心的注册服务
+        service-id: eureka-config-server
 # 指明加载的配置文件名称(多个逗号隔开) 默认取spring.application.name
 # spring.cloud.config.name = eureka-config-client
