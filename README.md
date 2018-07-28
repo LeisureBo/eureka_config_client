@@ -59,4 +59,6 @@ spring:
 ```
 * 部署两个config-client微服务，二者可以读取不同远程配置，rabbitmq代理必须相同：
 
-		修改2个微服务各自的远程配置属性foo，`POST`访问其中的一个微服务的刷新端点：http://127.0.0.1:{port}/actuator/bus-refresh, 访问另一个微服务读取配置，发现已正确读取刚刚修改的属性foo。
+		修改2个微服务各自的远程配置属性foo，`POST`访问其中的一个微服务的刷新端点：http://127.0.0.1:{port}/actuator/bus-refresh, 
+		访问另一个微服务读取配置，发现已正确读取刚刚修改的属性foo。另外，/actuator/bus-refresh接口可以指定服务，即使用”destination”参数，
+		比如 “/actuator/bus-refresh?destination=customers:**” 即刷新服务名为customers的所有服务。
