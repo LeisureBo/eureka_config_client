@@ -32,11 +32,14 @@ public class TestController {
 	}
 }
 ```
-* 读取远程配置属性foo：<br>
-		例如：333
-* 修改远程配置foo为111，发现访问controller读取foo没有改变，此时`POST`访问http://127.0.0.1:{port}/actuator/refresh，重新访问controller:<br>
-		foo属性已变为：111
-## 使用bus消息总线动态更新微服务集群配置
+* 读取远程配置属性foo：
+
+		 例如foo=111
+		
+* 修改远程配置foo=333：
+
+		发现访问controller读取foo没有改变，此时`POST`访问http://127.0.0.1:{port}/actuator/refresh，重新访问controller服务配置，发现foo属行已变为333。
+## 微服务集群配置动态更新
 * 在上文基础上添加bus消息总线依赖，使用rabbitmq作为消息代理：
 ```xml
 <dependency>
@@ -44,7 +47,7 @@ public class TestController {
 		<artifactId>spring-cloud-starter-bus-amqp</artifactId>
 </dependency>
 ```
-* 添加rabbitmq配置，可配置在config-server：
+* 添加rabbitmq配置(可配置在config-server)：
 ```yml
 spring:
   rabbitmq:
@@ -54,5 +57,6 @@ spring:
     password: guest
     virtual-host: /
 ```
-* 部署两个config-client微服务，二者读取同一远程配置
-修改远程配置属性foo，`POST`访问其中的一个微服务的刷新端点：http://127.0.0.1:{port}/actuator/bus-refresh, 访问另一个微服务读取配置，发现已正确读取刚刚修改的属性foo
+* 部署两个config-client微服务，二者读取同一远程配置：
+
+		修改远程配置属性foo，`POST`访问其中的一个微服务的刷新端点：http://127.0.0.1:{port}/actuator/bus-refresh, 访问另一个微服务读取配置，发现已正确读取刚刚修改的属性foo。
