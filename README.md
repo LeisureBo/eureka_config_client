@@ -23,12 +23,12 @@ management:
 @RefreshScope
 public class TestController {
 
-	@Value("${foo}")
-	public String foo;
+    @Value("${foo}")
+    public String foo;
 	
-	@RequestMapping("/getfoo")
-	public String getfoo() {
-		return foo;
+    @RequestMapping("/getfoo")
+    public String getfoo() {
+        return foo;
 	}
 }
 ```
