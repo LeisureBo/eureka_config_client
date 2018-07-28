@@ -34,7 +34,7 @@ public class TestController {
 ```
 * 读取远程配置属性foo：
 
-		 例如foo=111
+		 例如：foo=111
 		
 * 修改远程配置foo=333：
 
