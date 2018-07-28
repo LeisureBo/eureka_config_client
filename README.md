@@ -29,7 +29,7 @@ public class TestController {
     @RequestMapping("/getfoo")
     public String getfoo() {
         return foo;
-	}
+    }
 }
 ```
 * 读取远程配置属性foo：
