@@ -57,6 +57,6 @@ spring:
     password: guest
     virtual-host: /
 ```
-* 部署两个config-client微服务，二者读取同一远程配置：
+* 部署两个config-client微服务，二者可以读取不同远程配置，rabbitmq代理必须相同：
 
-		修改远程配置属性foo，`POST`访问其中的一个微服务的刷新端点：http://127.0.0.1:{port}/actuator/bus-refresh, 访问另一个微服务读取配置，发现已正确读取刚刚修改的属性foo。
+		修改2个微服务各自的远程配置属性foo，`POST`访问其中的一个微服务的刷新端点：http://127.0.0.1:{port}/actuator/bus-refresh, 访问另一个微服务读取配置，发现已正确读取刚刚修改的属性foo。
