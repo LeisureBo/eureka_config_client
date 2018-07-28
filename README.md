@@ -18,11 +18,11 @@ management:
         include: '*'
 ```
 * 读取远程配置controller添加@RefreshScope注解：
-```java
+```Java
 @RestController
 @RefreshScope
 public class TestController {
-	
+
 	@Value("${foo}")
 	public String foo;
 	
