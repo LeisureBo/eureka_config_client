@@ -43,8 +43,8 @@ public class TestController {
 * 在上文基础上添加bus消息总线依赖，使用rabbitmq作为消息代理：
 ```xml
 <dependency>
-		<groupId>org.springframework.cloud</groupId>
-		<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-bus-amqp</artifactId>
 </dependency>
 ```
 * 添加rabbitmq配置(可配置在config-server)：
