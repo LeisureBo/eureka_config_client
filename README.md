@@ -58,7 +58,7 @@ public class TestRefresh {
 }
 ```
 * 关于@RefreshScope注解：<br>
-1.@RefreshScope这个注解会生成代理类，在其他组件类中注入这个配置类实例实际上是代理类实例，如果不识别代理请不要使用，直接使用Json序列化会抛出com.fasterxml.jackson.databind.exc.InvalidDefinitionException异常，可使用clone副本进行替代。<br>
+1.@RefreshScope这个注解会生成代理类，在其他类中注入的实际上是代理类实例，如果不识别代理请不要使用，直接使用Json序列化会抛出com.fasterxml.jackson.databind.exc.InvalidDefinitionException异常，可使用clone副本进行替代。<br>
 2.@RefreshScope作用的类，不能是final类，否则启动时会报错。
 ## 微服务集群配置动态更新
 * 在上文基础上添加bus消息总线依赖，使用rabbitmq作为消息代理：
