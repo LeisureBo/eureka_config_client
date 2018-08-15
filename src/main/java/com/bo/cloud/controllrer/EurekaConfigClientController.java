@@ -22,7 +22,7 @@ public class EurekaConfigClientController {
 	@Value("${foo}")
 	private String foo;
 	
-	@RequestMapping("/getfoo")
+	@RequestMapping("/getFoo")
 	public String getConfigFromRemote() {
 		return foo;
 	}
