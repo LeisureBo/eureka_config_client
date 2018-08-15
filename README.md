@@ -79,4 +79,4 @@ spring:
     virtual-host: /
 ```
 * 部署两个config-client微服务(二者可以读取不同远程配置，rabbitmq代理必须相同)：<br>
-修改两个微服务各自的远程配置属性，`POST`访问其中一个微服务的刷新端点：http://127.0.0.1:{port}/actuator/bus-refresh, 访问另一个微服务发现已变为刚修改的配置。另外，/actuator/bus-refresh接口可以指定服务，即使用"destination"参数，比如 "/actuator/bus-refresh?destination=customers:**" 即刷新服务名为customers的所有服务。
+修改两个微服务各自的远程配置属性，`POST`访问其中一个微服务的刷新端点：http://127.0.0.1:{port}/actuator/bus-refresh, 访问另一个微服务发现已变为刚修改的配置。另外，/actuator/bus-refresh接口可以指定服务，即使用"destination"参数，比如刷新服务名为customers的所有服务："/actuator/bus-refresh?destination=customers:**"
