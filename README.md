@@ -57,7 +57,7 @@ public class TestRefresh {
 	private double salary;
 }
 ```
-* 关于@RefreshScope注解<br>
+* 关于@RefreshScope注解：<br>
 1.@RefreshScope这个注解会生成代理类，在其他组件类中注入这个配置类实例实际上是代理类实例，如果不识别代理请不要使用，例如直接使用Json进行序列化会抛出com.fasterxml.jackson.databind.exc.InvalidDefinitionException异常。<br>
 2.@RefreshScope作用的类，不能是final类，否则启动时会报错。
 ## 微服务集群配置动态更新
@@ -78,5 +78,5 @@ spring:
     password: guest
     virtual-host: /
 ```
-* 部署两个config-client微服务，二者可以读取不同远程配置，rabbitmq代理必须相同.<br>
-修改2个微服务各自的远程配置属性foo，`POST`访问其中的一个微服务的刷新端点：http://127.0.0.1:{port}/actuator/bus-refresh, 访问另一个微服务读取配置，发现已正确读取刚刚修改的属性foo。另外，/actuator/bus-refresh接口可以指定服务，即使用"destination"参数，比如 "/actuator/bus-refresh?destination=customers:**" 即刷新服务名为customers的所有服务。
+* 部署两个config-client微服务(二者可以读取不同远程配置，rabbitmq代理必须相同)：<br>
+修改两个微服务各自的远程配置属性，`POST`访问其中一个微服务的刷新端点：http://127.0.0.1:{port}/actuator/bus-refresh, 访问另一个微服务发现已变为刚修改的配置。另外，/actuator/bus-refresh接口可以指定服务，即使用"destination"参数，比如 "/actuator/bus-refresh?destination=customers:**" 即刷新服务名为customers的所有服务。
